@@ -1,0 +1,36 @@
+@keyframes boxAppear {
+    0%{
+        margin-top: 0px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 38.2px;
+        opacity: 1;
+    }
+}
+
+@keyframes boxDisappear {
+    0%{
+        margin-top: 38.2px;
+        opacity: 1;
+    }
+    100% {
+        margin-top: 0px;
+        opacity: 0;
+    }
+}
+
+.box.appear {
+    margin-top: 38.2px;
+    animation: boxAppear 0.5s;
+}
+
+.box.disappear {
+    margin-top: 0;
+    animation: boxDisappear 0.5s;
+}
+
+
+@keyframes HuaHua {
+    100%{transform:rotate(360deg);}
+}

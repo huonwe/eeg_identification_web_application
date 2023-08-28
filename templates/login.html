@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>登陆</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+    <script src="/static/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/login.css" />
+    <link rel="icon" href="/static/icon/favicon.ico"/>
+    <link rel="bookmark" href="/static/icon/favicon.ico">
+    <style>
+        body {
+        height: 98vh;
+        background-image: url("/static/b.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background-color: antiquewhite; */
+        display: flex;
+        flex-direction: row;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="login_box">
+
+      <div class="inputbox">
+        <input class="" id="password" type="password" placeholder="请输入管理员密码"/>
+      </div>
+
+      <div class="logintips"></div>
+      
+
+      <button class="btn_login" type="button" onclick="Login()">登陆</button>
+
+    </div>
+  </body>
+</html>

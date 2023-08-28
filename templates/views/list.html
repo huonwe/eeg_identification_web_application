@@ -1,0 +1,34 @@
+<div class="title">脑电身份关联表</div>
+<div class="operatorLine">
+    <div class="operator" onclick="eegNew()">➕&nbsp;注册</div>
+
+    <div class="operator" onclick="eegSort()">⭐&nbsp;识别</div>
+    <!-- <div class="operator">🔃&nbsp;Refresh</div> -->
+    <div class="operator"><input class="search" type="text" placeholder="筛选" onkeypress="
+        eegSearch(this.value)
+        " value="{{searchValue}}"></div>
+</div>
+<div class="itemPlacement">
+    <div class="item">
+        {%for key in eegList[0].keys()%}
+        <div>{{key}}</div>
+        {% endfor %}
+        <div>Operation</div>
+    </div>
+    
+    {%for eeg in eegList%}
+    <div class="item">
+        {%for value in eeg.values()%}
+        <div>{{value}}</div>
+        {% endfor %}
+
+        {%if eeg.keys()%}
+        <div class="operatorLine">
+            <div class="operator" onclick="eegDelete('{{eeg.Name}}')">🚮</div>
+            <div class="operator" onclick="eegStatusToggle(this,'{{eeg.Name}}')">🔄</div>
+            <div class="operator" onclick="eegMap('{{eeg.Name}}')">🌍</div>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>

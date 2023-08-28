@@ -1,0 +1,76 @@
+<div class="box appear" style="width:318px;height:300px;">
+    <div class="title">注册</div>
+    <input id="upload_username" class="textInput" type="text" placeholder="用户名">
+    <textarea id="upload_extro" class="textInput" type="text" placeholder="备注"
+        style="height: 6em;max-height: 6e
+        m;min-height: 6em;width: 70%;max-width: 70%;min-width: 70%;"></textarea>
+    <input id="upload_eegFile" style="display: none;" type="file" onchange="
+    if(this.files.length == 1){
+        document.getElementById('fileInputCover').style.outline = '1px green solid'
+        document.getElementById('fileInputCover').innerText = this.files[0].name
+        let name = this.files[0].name
+        if(!name.endsWith('.mat') && !name.endsWith('.edf')){
+            document.getElementById('fileInputCover').style.outline = '1px red solid'
+        }
+    }
+    ">
+    <button id="fileInputCover" onclick="document.getElementById('upload_eegFile').click()" class="niceBtn">选择脑电文件</button>
+
+    <div style="display:flex;flex-direction:row; width: 70%;">
+        <button class="niceBtn" onclick="
+        let data = {
+           'Username':document.getElementById('upload_username').value,
+           'Extro':document.getElementById('upload_extro').value,
+        }
+       if(data.Username == ''){
+        document.getElementById('upload_username').style.outline = '1px red solid'
+        return
+       }
+       let fileInput = document.querySelector('#upload_eegFile')
+       let files = fileInput.files
+       if(files.length !=1){
+        return
+       }
+       if(!files[0].name.endsWith('.mat') && !files[0].name.endsWith('.edf')){
+            document.getElementById('fileInputCover').style.outline = '1px red solid'
+            return
+        }
+       // console.log(files[0])
+       let formData = new FormData()
+       formData.append('file',files[0])
+       formData.append('data',JSON.stringify(data))
+       let xhr = new XMLHttpRequest()
+       xhr.open('POST','/reg')    
+       xhr.send(formData)
+       xhr.onreadystatechange=()=>{
+           if(xhr.status==200 && xhr.readyState==4){
+               let resp = JSON.parse(xhr.responseText)
+               console.log(resp)
+               if(resp.code==200){
+                    document.getElementsByClassName('box appear')[0].style.transition = 'opacity 0.5s'
+                    document.getElementsByClassName('box appear')[0].style.opacity = '0'
+                    setTimeout(()=>{
+                        mask.innerHTML='';
+                        mask.style.display='none';
+                        eegSearch('');
+                    },500)
+                    alert('success')
+               }else{
+                alert(resp['msg'])
+               }
+           }
+       }
+       
+       ">✔</button>
+        <button class="niceBtn" style="margin-left: 10px;" onclick="
+       
+       document.getElementsByClassName('box appear')[0].style.transition = 'opacity 0.5s'
+       document.getElementsByClassName('box appear')[0].style.opacity = '0'
+       setTimeout(()=>{
+            mask.innerHTML='';
+            mask.style.display='none';
+       },300)
+       " ;>❌</button>
+    </div>
+
+</div>

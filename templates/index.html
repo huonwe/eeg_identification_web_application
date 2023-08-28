@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEG LIBRARY MANAGE</title>
+    <link rel="stylesheet" href="static/index.css">
+    <link rel="stylesheet" href="static/frame.css">
+    <script src="static/index.js"></script>
+</head>
+<body>
+    <div id="sideBarBox" class="sideBar">
+        <div class="gate" onclick="getView('list')">刷新</div>
+        <div class="gate" onclick=""><a href="http://47.113.224.100:5501">心电</a></div>
+        <!-- <div class="gate" onclick="getView('log')">LOG</div> -->
+    </div>
+    <div id="mainContent" class="mainContent">
+    </div>
+    <div id="mask" class="mask" style="display: none;"></div>
+<script>
+    const gates = {
+        mainContent : document.getElementById("mainContent"),
+        mask : document.getElementById("mask"),
+    }
+    function getView(name){
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET","/views/"+name+"?username=&status=")
+        xhr.send();
+        xhr.onreadystatechange = ()=>{
+            if((xhr.status>=200 && xhr.status<300)||xhr.status===304){
+                let resp = xhr.response
+                gates.mainContent.innerHTML = resp
+            }
+        }
+    }
+    getView('list')
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+/* * {
+    border: 1px black solid;
+} */
+html { 
+    overflow-x: hidden;
+    overflow-y: hidden; 
+}
+body {
+    height: 98vh;
+    background-image: url("/static/b.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: row;
+}
+
+.mask {
+    position: absolute;
+    width: 100vw;
+    height: 98vh;
+    z-index: 10;
+    background-color: rgba(110, 110, 110, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* overflow: hidden; */
+}
+
+.box {
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px gray;
+    background-color: rgba(255, 255, 255, 0.618);
+
+    margin: auto;
+    margin-top: 38.2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* animation: boxAppear 10s; */
+}
+
+.box .title {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.textInput {
+    width: 70%;
+    height: 2em;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+
+    padding-left: 15px;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.textInput:focus {
+    outline: 1px solid rgba(63, 255, 89, 0.5)
+}
+
+.redOutline {
+    outline: 1px solid red;
+}
+
+.niceBtn {
+    border: 0;
+    outline: 0;
+    width: calc(70% + 15px);
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    border-radius: 5px;
+}
+
+.niceBtn:hover {
+    cursor: pointer;
+}
+
+.sideBar {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideBar .gate {
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.382);
+    height: fit-content;
+    min-height: 3em;
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border: 0px;
+    border-bottom: 1px gray solid;
+    border-radius: 5px;
+}
+
+.sideBar *:hover {
+    cursor: pointer;
+    background-color: gainsboro;
+}
+
+.mainContent {
+    flex: 4;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 3em;
+
+    border: 0;
+    border-bottom: 3.5px  black  solid;
+}
+
+.operatorLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: fit-content;
+    /* min-height: 3em; */
+}
+
+.operatorLine .operator {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: fit-content;
+    color: purple;
+    background-color: rgba(248, 240, 229,0);
+
+    padding: 10px;
+    margin-left: 10px;
+
+    user-select: none;
+}
+
+.operator:hover {
+    cursor: pointer;        /*设定鼠标的形状为一只伸出食指的手*/
+}
+
+.mainContent .itemPlacement {
+    flex: 1;
+    background-color: rgba(248, 240, 229, 0.618);
+    border-radius: 18px;
+}
+
+.itemPlacement .item {
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+}
+
+.itemPlacement .item:nth-child(1) {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    /* border-radius: 18px; */
+}
+
+.itemPlacement .item:hover {
+    background-color: white;
+}
+
+.itemPlacement .item *{
+    flex: 1;
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    margin: auto;
+    text-align: center;
+    user-select: none;
+
+    border-left: 0.3px rgba(128, 128, 128, 0) solid;
+    border-right: 0.3px rgba(128, 128, 128, 0) solid;
+
+}
+
+.itemPlacement .item *:hover{
+    background-color: rgb(251, 242, 242);
+
+    border-left: 0.3px gray solid;
+    border-right: 0.3px gray solid;
+}
+
+
+.circle {
+    border-radius: 50%;
+    border: 1px dashed black;
+    background: none;
+    position: absolute;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+
+    animation:HuaHua infinite;
+}
+
+/* .circle:before {
+    content: "ADMIN";
+}
+ */
+
+
+.search {
+    width: 100%;
+    padding: 3px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid rgb(220, 233, 255);
+    /*border-radius: 0px;   */         /*改圆角*/
+    background-color: rgba(220, 233, 255,0);
+    border-bottom: 2px solid black;   
+}

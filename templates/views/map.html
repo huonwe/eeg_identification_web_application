@@ -1,0 +1,30 @@
+<div style="
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    overflow: hidden;
+" onmousewheel="selfZoom(this)"
+>
+    {%for person in distList%}
+    {% if person.dist <= 60.7%}
+    <div class="circle" style='width: {{person.dist/1.5}}px;height:{{person.dist/1.5}}px;border:1px solid {{person.color}};color:{{person.color}};font-size:5px'>{{person.name}}</div>
+    {% else %}
+    <div class="circle" style='width: {{person.dist/1.5}}px;height:{{person.dist/1.5}}px;border:1px dashed {{person.color}};color:{{person.color}};animation-duration:{{person.dist}}s;font-size:18px'>{{person.name}}-{{person.dist}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+<button class="niceBtn" style="
+position: fixed;
+top: 5%;
+left: 95%;
+width: fit-content;
+height: fit-content;
+" onclick="
+    mask.innerHTML='';
+    mask.style.display='none';
+   " ;>❌</button>
+
