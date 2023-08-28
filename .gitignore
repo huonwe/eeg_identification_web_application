@@ -1,4 +1,5 @@
 /eegv
+/__pycache__
 *.pth
 *.docx
 *.pptx
