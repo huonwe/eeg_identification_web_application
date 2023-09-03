@@ -1,2 +1,5 @@
 # eeg_identification_web_application
-模型不开源
+
+![image](https://github.com/huonwe/eeg_identification_web_application/blob/main/docs/eeg_web.png?raw=true)
+
+模型不会放出
